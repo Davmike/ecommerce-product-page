@@ -39,23 +39,27 @@ const StyledBurger = ({ setHidden, hidden }: StyledBurgerProps) => (
 export default function Header({ setHidden, hidden }: MyComponentProps) {
   return (
     <div>
-      <div className="flex justify-center items-center bg-[white] px-[24px] pt-[20px] pb-[28px]">
-        <StyledBurger setHidden={setHidden} hidden={hidden} />
-        <img
-          className="w-[137px] h-[28px] ml-[10px]"
-          src={logo}
-          alt="logo of sneakers"
-        />
-        <img
-          className="w-[21px] h-[20px] ml-[89px]"
-          src={cart}
-          alt="here is cart icon"
-        />
-        <img
-          className="w-[24]px] h-[24px] ml-[22px]"
-          src={profile}
-          alt="here is profile icon"
-        />
+      <div className="flex justify-between items-center bg-[white] px-[24px] pt-[20px] pb-[28px]">
+        <div className="flex items-center">
+          <StyledBurger setHidden={setHidden} hidden={hidden} />
+          <img
+            className="w-[137px] h-[28px] ml-[10px]"
+            src={logo}
+            alt="logo of sneakers"
+          />
+        </div>
+        <div className="flex items-center">
+          <img
+            className="w-[21px] h-[20px] ml-[89px]"
+            src={cart}
+            alt="here is cart icon"
+          />
+          <img
+            className="w-[24]px] h-[24px] ml-[22px]"
+            src={profile}
+            alt="here is profile icon"
+          />
+        </div>
       </div>
     </div>
   );
