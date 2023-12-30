@@ -1,5 +1,7 @@
 import React, { ReactNode, useState } from "react";
 import { useSwipeable } from "react-swipeable";
+import arrowRight from "../assets/icon-next.svg";
+import arrowLeft from "../assets/icon-previous.svg";
 
 export const CarouselItem = ({
   children,
@@ -15,6 +17,7 @@ export const CarouselItem = ({
   );
 };
 
+// here i add image change code which controled if image change or not
 const Carousel = ({ children }: { children: ReactNode }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -28,6 +31,7 @@ const Carousel = ({ children }: { children: ReactNode }) => {
     setActiveIndex(newIndex);
   };
 
+  // here i add sensor slider for mobile and other device
   const handlers = useSwipeable({
     onSwipedLeft: () => updateIndex(activeIndex + 1),
     onSwipedRight: () => updateIndex(activeIndex - 1),
@@ -44,21 +48,26 @@ const Carousel = ({ children }: { children: ReactNode }) => {
         })}
       </div>
       <div className="indicators">
-        <button
-          onClick={() => {
-            updateIndex(activeIndex - 1);
-          }}
-        >
-          Prev
-        </button>
-
-        <button
-          onClick={() => {
-            updateIndex(activeIndex + 1);
-          }}
-        >
-          Next
-        </button>
+        {/* first image which turn image left*/}
+        <div className="w-[40px] h-[40px] bg-[white] rounded-[50%] flex justify-center items-center">
+          <button
+            onClick={() => {
+              updateIndex(activeIndex - 1);
+            }}
+          >
+            <img src={arrowLeft} alt="turn image left" />
+          </button>
+        </div>
+        {/* second image which turn image right*/}
+        <div className="w-[40px] h-[40px] bg-[white] rounded-[50%] flex justify-center items-center">
+          <button
+            onClick={() => {
+              updateIndex(activeIndex + 1);
+            }}
+          >
+            <img src={arrowRight} alt="turn image right" />
+          </button>
+        </div>
       </div>
     </div>
   );
