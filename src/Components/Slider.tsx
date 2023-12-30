@@ -3,6 +3,7 @@ import imgOne from "../assets/image-product-1.jpg";
 import imgTwo from "../assets/image-product-2.jpg";
 import imgThree from "../assets/image-product-3.jpg";
 import imgFour from "../assets/image-product-4.jpg";
+import buttonCart from "../assets/icon-cart.svg";
 
 export default function Slider() {
   return (
@@ -42,6 +43,20 @@ export default function Slider() {
             </div>
           </div>
           <p className="text-[#B6BCC8] text-[16px] bold">$250.00</p>
+        </div>
+
+        <div className="flex justify-center items-center mt-[27px]">
+          <input
+            className="bg-[#F6F8FD] h-[56px] rounded-[10px] outline-none w-[327px]"
+            type="number"
+          />
+        </div>
+
+        <div className="flex justify-center items-center mt-[16px]">
+          <button className="bg-[#FF7E1B] w-[327px] h-[56px] rounded-[10px] flex justify-center items-center gap-[15px] text-[#FFFFFF] text-[16px] bold">
+            <img src={buttonCart} alt="" />
+            Add to cart
+          </button>
         </div>
       </div>
     </div>
