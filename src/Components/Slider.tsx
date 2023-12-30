@@ -49,12 +49,13 @@ export default function Slider() {
           <input
             className="bg-[#F6F8FD] h-[56px] rounded-[10px] outline-none w-[327px]"
             type="number"
+            placeholder="0"
           />
         </div>
 
         <div className="flex justify-center items-center mt-[16px]">
           <button className="bg-[#FF7E1B] w-[327px] h-[56px] rounded-[10px] flex justify-center items-center gap-[15px] text-[#FFFFFF] text-[16px] bold">
-            <img src={buttonCart} alt="" />
+            <img src={buttonCart} alt="cart image for button" />
             Add to cart
           </button>
         </div>

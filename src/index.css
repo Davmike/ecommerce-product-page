@@ -49,11 +49,18 @@ body {
   left: 50%;
 }
 
-/* .indicators > button {
-  margin: 5px;
-} */
-/* 
-.indicators > button.active {
-  background-color: green;
-  color: #fff;
-} */
+input::placeholder {
+  color: #1d2026;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+input[type="number"] {
+  color: #1d2026;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
