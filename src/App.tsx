@@ -1,11 +1,13 @@
 import { useState } from "react";
-import "./App.css";
+import Header from "./Components/Header";
 
 function App() {
+  const [hidden, setHidden] = useState(false);
+
   return (
-    <div>
-      <h1>hello</h1>
-    </div>
+    <>
+      <Header hidden={hidden} setHidden={setHidden} />
+    </>
   );
 }
 
