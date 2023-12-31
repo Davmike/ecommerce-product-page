@@ -59,7 +59,7 @@ const Carousel = ({ children }: { children: ReactNode }) => {
           </button>
         </div>
         {/* second image which turn image right*/}
-        <div className="w-[40px] h-[40px] bg-[white] rounded-[50%] flex justify-center items-center">
+        <div className="w-[40px] h-[40px] bg-[white] rounded-[50%] flex justify-center items-center ">
           <button
             onClick={() => {
               updateIndex(activeIndex + 1);
