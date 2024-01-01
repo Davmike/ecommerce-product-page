@@ -38,7 +38,7 @@ const StyledBurger = ({ setHidden, hidden }: StyledBurgerProps) => (
 
 export default function Header({ setHidden, hidden }: MyComponentProps) {
   return (
-    <div>
+    <header className="relative">
       <div className="flex justify-between items-center bg-[white] px-[24px] pt-[20px] pb-[28px]">
         <div className="flex items-center">
           <StyledBurger setHidden={setHidden} hidden={hidden} />
@@ -61,6 +61,6 @@ export default function Header({ setHidden, hidden }: MyComponentProps) {
           />
         </div>
       </div>
-    </div>
+    </header>
   );
 }

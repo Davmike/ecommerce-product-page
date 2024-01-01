@@ -6,8 +6,11 @@ import imgFour from "../assets/image-product-4.jpg";
 import buttonCart from "../assets/icon-cart.svg";
 import minusImg from "../assets/icon-minus.svg";
 import plusImg from "../assets/icon-plus.svg";
+import { useState } from "react";
 
 export default function Slider() {
+  const [count, setCount] = useState(0);
+
   return (
     <div className="App">
       <Carousel>
@@ -50,15 +53,23 @@ export default function Slider() {
         </div>
         <div className="flex justify-center">
           <div className="flex flex-row justify-between items-center w-[327px] h-[56px] bg-[#F6F8FD] p-[24px] mt-[27px] rounded-md  desktop:w-[137px]">
-            <button>
+            <button
+              onClick={() => {
+                setCount(count - 1);
+              }}
+            >
               <img
                 src={minusImg}
                 alt=""
                 className="cursor-pointer  hover:text-[#FFAB6A]"
               />
             </button>
-            <strong className="font-kumbh-sans">0</strong>
-            <button>
+            <strong className="font-kumbh-sans">{count}</strong>
+            <button
+              onClick={() => {
+                setCount(count + 1);
+              }}
+            >
               <img
                 src={plusImg}
                 alt=""

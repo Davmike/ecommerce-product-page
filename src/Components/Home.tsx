@@ -38,35 +38,37 @@ const Carousel = ({ children }: { children: ReactNode }) => {
   });
 
   return (
-    <div {...handlers} className="carousel">
-      <div
-        className="inner"
-        style={{ transform: `translateX(-${activeIndex * 100}%)` }}
-      >
-        {React.Children.map(children, (child: any) => {
-          return React.cloneElement(child, { width: "100%" });
-        })}
-      </div>
-      <div className="indicators">
-        {/* first image which turn image left*/}
-        <div className="w-[40px] h-[40px] bg-[white] rounded-[50%] flex justify-center items-center">
-          <button
-            onClick={() => {
-              updateIndex(activeIndex - 1);
-            }}
-          >
-            <img src={arrowLeft} alt="turn image left" />
-          </button>
+    <div className="flex justify-center items-center">
+      <div {...handlers} className="carousel">
+        <div
+          className="inner"
+          style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+        >
+          {React.Children.map(children, (child: any) => {
+            return React.cloneElement(child, { width: "100%" });
+          })}
         </div>
-        {/* second image which turn image right*/}
-        <div className="w-[40px] h-[40px] bg-[white] rounded-[50%] flex justify-center items-center ">
-          <button
-            onClick={() => {
-              updateIndex(activeIndex + 1);
-            }}
-          >
-            <img src={arrowRight} alt="turn image right" />
-          </button>
+        <div className="indicators">
+          {/* first image which turn image left*/}
+          <div className="w-[40px] h-[40px] bg-[white] rounded-[50%] flex justify-center items-center">
+            <button
+              onClick={() => {
+                updateIndex(activeIndex - 1);
+              }}
+            >
+              <img src={arrowLeft} alt="turn image left" />
+            </button>
+          </div>
+          {/* second image which turn image right*/}
+          <div className="w-[40px] h-[40px] bg-[white] rounded-[50%] flex justify-center items-center ">
+            <button
+              onClick={() => {
+                updateIndex(activeIndex + 1);
+              }}
+            >
+              <img src={arrowRight} alt="turn image right" />
+            </button>
+          </div>
         </div>
       </div>
     </div>
