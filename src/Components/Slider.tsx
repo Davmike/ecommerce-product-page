@@ -3,7 +3,7 @@ import imgOne from "../assets/image-product-1.jpg";
 import imgTwo from "../assets/image-product-2.jpg";
 import imgThree from "../assets/image-product-3.jpg";
 import imgFour from "../assets/image-product-4.jpg";
-import buttonCart from "../assets/icon-cart.svg";
+import shape from "../assets/Shape.svg";
 import minusImg from "../assets/icon-minus.svg";
 import plusImg from "../assets/icon-plus.svg";
 import { useState } from "react";
@@ -55,7 +55,9 @@ export default function Slider() {
           <div className="flex flex-row justify-between items-center w-[327px] h-[56px] bg-[#F6F8FD] p-[24px] mt-[27px] rounded-md  desktop:w-[137px]">
             <button
               onClick={() => {
-                setCount(count - 1);
+                {
+                  count > 0 ? setCount(count - 1) : "";
+                }
               }}
             >
               <img
@@ -81,7 +83,7 @@ export default function Slider() {
 
         <div className="flex justify-center items-center mt-[16px]">
           <button className="bg-[#FF7E1B] w-[327px] h-[56px] rounded-[10px] flex justify-center items-center gap-[15px] text-[#FFFFFF] text-[16px] bold">
-            <img src={buttonCart} alt="cart image for button" />
+            <img src={shape} alt="cart image for button" />
             Add to cart
           </button>
         </div>
