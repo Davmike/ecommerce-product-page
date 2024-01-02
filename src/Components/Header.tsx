@@ -17,7 +17,7 @@ interface StyledBurgerProps extends MyComponentProps {
 // StyledBurger component
 const StyledBurger = ({ setHidden, hidden }: StyledBurgerProps) => (
   <button
-    className={`flex flex-col justify-around  w-8 h-8 bg-transparent border-none cursor-pointer p-0 z-10 focus:outline-none`}
+    className={`flex flex-col justify-around  w-8 h-8 bg-transparent border-none cursor-pointer p-0 z-40 focus:outline-none`}
     onClick={() => setHidden(!hidden)}
   >
     <div
