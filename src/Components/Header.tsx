@@ -1,11 +1,13 @@
 import React from "react";
 import logo from "../assets/logo.svg";
-import cart from "../assets/icon-cart.svg";
+import cartImage from "../assets/icon-cart.svg";
 import profile from "../assets/image-avatar.png";
 
 interface MyComponentProps {
   hidden: boolean;
   setHidden: React.Dispatch<React.SetStateAction<boolean>>;
+  cart: boolean;
+  setCart: (cart: boolean) => void;
 }
 
 interface StyledBurgerProps extends MyComponentProps {
@@ -36,12 +38,24 @@ const StyledBurger = ({ setHidden, hidden }: StyledBurgerProps) => (
   </button>
 );
 
-export default function Header({ setHidden, hidden }: MyComponentProps) {
+export default function Header({
+  setHidden,
+  hidden,
+  cart,
+  setCart,
+}: MyComponentProps) {
   return (
     <header className="relative">
       <div className="flex justify-between items-center bg-[white] px-[24px] pt-[20px] pb-[28px]">
         <div className="flex items-center">
-          <StyledBurger setHidden={setHidden} hidden={hidden} />
+          <StyledBurger
+            setHidden={setHidden}
+            hidden={hidden}
+            cart={false}
+            setCart={function (_cart: boolean): void {
+              throw new Error("Function not implemented.");
+            }}
+          />
           <img
             className="w-[137px] h-[28px] ml-[10px]"
             src={logo}
@@ -50,9 +64,10 @@ export default function Header({ setHidden, hidden }: MyComponentProps) {
         </div>
         <div className="flex items-center">
           <img
-            className="w-[21px] h-[20px] ml-[89px]"
-            src={cart}
+            className="w-[21px] h-[20px] ml-[89px] cursor-pointer"
+            src={cartImage}
             alt="here is cart icon"
+            onClick={() => setCart?.(!cart)}
           />
           <img
             className="w-[24]px] h-[24px] ml-[22px]"
