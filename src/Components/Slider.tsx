@@ -6,7 +6,6 @@ import imgFour from "../assets/image-product-4.jpg";
 import shape from "../assets/Shape.svg";
 import minusImg from "../assets/icon-minus.svg";
 import plusImg from "../assets/icon-plus.svg";
-import { useState } from "react";
 
 export default function Slider({ count, setCount, totalBuying }: CartNumProps) {
   return (
