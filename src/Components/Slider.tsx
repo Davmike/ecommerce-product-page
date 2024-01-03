@@ -8,9 +8,7 @@ import minusImg from "../assets/icon-minus.svg";
 import plusImg from "../assets/icon-plus.svg";
 import { useState } from "react";
 
-export default function Slider() {
-  const [count, setCount] = useState(0);
-
+export default function Slider({ count, setCount, totalBuying }: CartNumProps) {
   return (
     <div className="App">
       <Carousel>
@@ -82,7 +80,10 @@ export default function Slider() {
         </div>
 
         <div className="flex justify-center items-center mt-[16px]">
-          <button className="bg-[#FF7E1B] w-[327px] h-[56px] rounded-[10px] flex justify-center items-center gap-[15px] text-[#FFFFFF] text-[16px] bold">
+          <button
+            onClick={totalBuying}
+            className="bg-[#FF7E1B] w-[327px] h-[56px] rounded-[10px] flex justify-center items-center gap-[15px] text-[#FFFFFF] text-[16px] bold"
+          >
             <img src={shape} alt="cart image for button" />
             Add to cart
           </button>

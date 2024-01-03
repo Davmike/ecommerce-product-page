@@ -1,11 +1,10 @@
 import cartImg from "../assets/image-product-1-thumbnail.jpg";
 import trash from "../assets/icon-delete.svg";
+import { useState } from "react";
 
-interface CartProps {
-  cart: boolean;
-}
+export default function Cart({ cart, total, count }: CartProps) {
+  const [num] = useState(125);
 
-export default function Cart({ cart }: CartProps) {
   return (
     <div className="px-[8px] pt-[8px] pb-[36px] flex fixed right-0 z-10 flex-row-reverse">
       {cart && (
@@ -15,7 +14,7 @@ export default function Cart({ cart }: CartProps) {
           </p>
           <hr className="bg-[#E4E9F2] h-[1px] mt-[27px]" />
           <p className="flex justify-center items-center mt-[77px] text-[#69707D] text-[16px] font-bold hidden">
-            Your cart is empty.
+            {count && total === 0 ? "Your cart is empty." : ""}
           </p>
           <div className="px-[24px] pt-[24px] pb-[32px]">
             <div className="flex">
@@ -30,10 +29,12 @@ export default function Cart({ cart }: CartProps) {
                 </p>
                 <div className="flex flex-row">
                   <p className="text-[#69707D] text-[16px] font-normal">
-                    $125.00 x 3
+                    ${num}
                   </p>
+                  <p className="font-kumbh-sans text-[#69707D]">x</p>
+                  <p className="font-kumbh-sans text-[#69707D]">{total}</p>
                   <p className="text-[#1D2026] text-[16px] font-bold ml-[5px]">
-                    $375.00
+                    ${num * total}
                   </p>
                   <img
                     className="absolute right-[8%] top-[42%]"

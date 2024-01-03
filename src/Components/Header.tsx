@@ -1,18 +1,6 @@
-import React from "react";
 import logo from "../assets/logo.svg";
 import cartImage from "../assets/icon-cart.svg";
 import profile from "../assets/image-avatar.png";
-
-interface MyComponentProps {
-  hidden: boolean;
-  setHidden: React.Dispatch<React.SetStateAction<boolean>>;
-  cart: boolean;
-  setCart: (cart: boolean) => void;
-}
-
-interface StyledBurgerProps extends MyComponentProps {
-  // This extends from MyComponentProps for clarity and potential future modifications
-}
 
 // StyledBurger component
 const StyledBurger = ({ setHidden, hidden }: StyledBurgerProps) => (
@@ -43,6 +31,8 @@ export default function Header({
   hidden,
   cart,
   setCart,
+  total,
+  count,
 }: MyComponentProps) {
   return (
     <header className="relative">
@@ -55,6 +45,8 @@ export default function Header({
             setCart={function (_cart: boolean): void {
               throw new Error("Function not implemented.");
             }}
+            total={0}
+            setTotal={undefined}
           />
           <img
             className="w-[137px] h-[28px] ml-[10px]"
@@ -62,7 +54,10 @@ export default function Header({
             alt="logo of sneakers"
           />
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center relative">
+          <div className="bg-[#FF7E1B] w-[19px] h-[13px] rounded-[6.5px] text-[white] text-[10px] font-bold flex justify-center items-center absolute top-[-2px] left-[99px]">
+            {count && total > 0 ? total : 0}
+          </div>
           <img
             className="w-[21px] h-[20px] ml-[89px] cursor-pointer"
             src={cartImage}
