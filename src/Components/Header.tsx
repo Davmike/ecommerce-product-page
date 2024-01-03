@@ -1,6 +1,7 @@
 import logo from "../assets/logo.svg";
 import cartImage from "../assets/icon-cart.svg";
 import profile from "../assets/image-avatar.png";
+import { SetStateAction } from "react";
 
 // StyledBurger component
 const StyledBurger = ({ setHidden, hidden }: StyledBurgerProps) => (
@@ -47,6 +48,10 @@ export default function Header({
             }}
             total={0}
             setTotal={undefined}
+            count={0}
+            setCount={function (value: SetStateAction<number>): void {
+              throw new Error("Function not implemented.");
+            }}
           />
           <img
             className="w-[137px] h-[28px] ml-[10px]"

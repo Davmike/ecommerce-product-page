@@ -9,7 +9,7 @@ function App() {
   const [cart, setCart] = useState<boolean>(false);
   const [total, setTotal] = useState<number | undefined>(0);
   const [number, setNumber] = useState<number>();
-  const [count, setCount] = useState<any>(0);
+  const [count, setCount] = useState<number>(0);
 
   const totalBuying = () => {
     setTotal(count);

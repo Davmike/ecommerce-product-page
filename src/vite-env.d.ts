@@ -6,7 +6,7 @@ interface CartProps {
   setTotal: any;
   number?: number;
   setNumber: React.Dispatch<React.SetStateAction<number | undefined>>;
-  // setNumber: React.Dispatch<React.SetStateAction<number>>;
+  count: number;
 }
 
 interface StyledBurgerProps extends MyComponentProps {
@@ -21,10 +21,14 @@ interface MyComponentProps {
   total: any;
   number?: number;
   setCart: (cart: boolean) => void;
+  count: number;
+  setCount: React.Dispatch<React.SetStateAction<number>>;
 }
 
 interface CartNumProps {
   number?: number;
   setTotal: any;
   totalBuying: () => void;
+  count: number;
+  setCount: React.Dispatch<React.SetStateAction<number>>;
 }
