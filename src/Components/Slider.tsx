@@ -27,7 +27,7 @@ export default function Slider({ count, setCount, totalBuying }: CartNumProps) {
       <div className="px-[24px] pt-[24px] pb-[88px] xl:w-[445px] xl:h-[426px]">
         <p className="text-[#FF7E1B] text-[12px] font-bold">SNEAKER COMPANY</p>
 
-        <h1 className="text-[#1D2026] text-[28px] font-bold mt-[19px]">
+        <h1 className="text-[#1D2026] text-[28px] font-bold mt-[19px] xl:text-[44px]">
           Fall Limited Edition Sneakers
         </h1>
 
@@ -48,44 +48,46 @@ export default function Slider({ count, setCount, totalBuying }: CartNumProps) {
             $250.00
           </p>
         </div>
-        <div className="flex justify-center">
-          <div className="flex flex-row justify-between items-center w-[327px] h-[56px] bg-[#F6F8FD] p-[24px] mt-[27px] rounded-md  desktop:w-[137px]">
+        <div className="xl:flex xl:gap-[16px]">
+          <div className="flex justify-center">
+            <div className="flex flex-row justify-between items-center w-[327px] h-[56px] bg-[#F6F8FD] p-[24px] mt-[27px] rounded-md  desktop:w-[137px] xl:w-[157px] xl:h-[56px]">
+              <button
+                onClick={() => {
+                  {
+                    count > 0 ? setCount(count - 1) : "";
+                  }
+                }}
+              >
+                <img
+                  src={minusImg}
+                  alt=""
+                  className="cursor-pointer  hover:text-[#FFAB6A]"
+                />
+              </button>
+              <strong className="font-kumbh-sans">{count}</strong>
+              <button
+                onClick={() => {
+                  setCount(count + 1);
+                }}
+              >
+                <img
+                  src={plusImg}
+                  alt=""
+                  className="cursor-pointer  hover:text-[#FFAB6A]"
+                />
+              </button>
+            </div>
+          </div>
+
+          <div className="flex justify-center items-center mt-[16px]">
             <button
-              onClick={() => {
-                {
-                  count > 0 ? setCount(count - 1) : "";
-                }
-              }}
+              onClick={totalBuying}
+              className="bg-[#FF7E1B] w-[327px] h-[56px] rounded-[10px] flex justify-center items-center gap-[15px] text-[#FFFFFF] text-[16px] bold xl:w-[272px] xl:h-[56px]"
             >
-              <img
-                src={minusImg}
-                alt=""
-                className="cursor-pointer  hover:text-[#FFAB6A]"
-              />
-            </button>
-            <strong className="font-kumbh-sans">{count}</strong>
-            <button
-              onClick={() => {
-                setCount(count + 1);
-              }}
-            >
-              <img
-                src={plusImg}
-                alt=""
-                className="cursor-pointer  hover:text-[#FFAB6A]"
-              />
+              <img src={shape} alt="cart image for button" />
+              Add to cart
             </button>
           </div>
-        </div>
-
-        <div className="flex justify-center items-center mt-[16px]">
-          <button
-            onClick={totalBuying}
-            className="bg-[#FF7E1B] w-[327px] h-[56px] rounded-[10px] flex justify-center items-center gap-[15px] text-[#FFFFFF] text-[16px] bold"
-          >
-            <img src={shape} alt="cart image for button" />
-            Add to cart
-          </button>
         </div>
       </div>
     </div>
