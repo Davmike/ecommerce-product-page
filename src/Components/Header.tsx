@@ -36,7 +36,7 @@ export default function Header({
   count,
 }: MyComponentProps) {
   return (
-    <header className="relative">
+    <header className="relative xl:hidden">
       <div className="flex justify-between items-center bg-[white] px-[24px] pt-[20px] pb-[28px]">
         <div className="flex items-center">
           <StyledBurger

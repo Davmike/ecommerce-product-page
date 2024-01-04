@@ -75,3 +75,13 @@ li {
   line-height: 26px; /* 144.444% */
   margin-top: 20px;
 }
+
+@media screen and (min-width: 1440px) {
+  .carousel {
+    display: none;
+  }
+
+  .App {
+    padding: 28px 165px 132px 165px;
+  }
+}

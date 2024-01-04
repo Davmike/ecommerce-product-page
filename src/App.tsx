@@ -3,6 +3,7 @@ import Header from "./Components/Header";
 import Slider from "./Components/Slider";
 import Menu from "./Components/Menu";
 import Cart from "./Components/Cart";
+import DesktopHeader from "./Components/DesktopHeader";
 
 function App() {
   const [hidden, setHidden] = useState(false);
@@ -21,6 +22,14 @@ function App() {
       <Header
         hidden={hidden}
         setHidden={setHidden}
+        cart={cart}
+        setCart={setCart}
+        total={total}
+        setTotal={setTotal}
+        count={count}
+        setCount={setCount}
+      />
+      <DesktopHeader
         cart={cart}
         setCart={setCart}
         total={total}

@@ -24,7 +24,7 @@ export default function Slider({ count, setCount, totalBuying }: CartNumProps) {
           <img className="image" src={imgFour} alt="Product 4" />
         </CarouselItem>
       </Carousel>
-      <div className="px-[24px] pt-[24px] pb-[88px]">
+      <div className="px-[24px] pt-[24px] pb-[88px] xl:w-[445px] xl:h-[426px]">
         <p className="text-[#FF7E1B] text-[12px] font-bold">SNEAKER COMPANY</p>
 
         <h1 className="text-[#1D2026] text-[28px] font-bold mt-[19px]">
