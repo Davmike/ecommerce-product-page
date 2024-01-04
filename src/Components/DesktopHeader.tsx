@@ -26,7 +26,7 @@ export default function DesktopHeader({ cart, setCart, total, count }) {
           </div>
         </div>
         <div className="flex items-center relative">
-          <div className="bg-[#FF7E1B] w-[19px] h-[13px] rounded-[6.5px] text-[white] text-[10px] font-bold flex justify-center items-center absolute top-[-2px] left-[99px]">
+          <div className="bg-[#FF7E1B] w-[19px] h-[13px] rounded-[6.5px] text-[white] text-[10px] font-bold flex justify-center items-center absolute top-[11px] left-[99px]">
             {count && total > 0 ? total : 0}
           </div>
           <img
