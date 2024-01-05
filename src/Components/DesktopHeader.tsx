@@ -1,9 +1,14 @@
-import React from "react";
 import logo from "../assets/logo.svg";
 import cartImage from "../assets/icon-cart.svg";
 import profile from "../assets/image-avatar.png";
+import { MyComponentProps } from "../types";
 
-export default function DesktopHeader({ cart, setCart, total, count }) {
+export default function DesktopHeader({
+  cart,
+  setCart,
+  total,
+  count,
+}: MyComponentProps) {
   return (
     <header className="hidden xl:block px-[165px] pt-[28px]">
       <div className="flex justify-between items-center bg-[white] px-[24px] pt-[20px] pb-[28px]">

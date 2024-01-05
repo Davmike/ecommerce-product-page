@@ -6,6 +6,7 @@ import imageOne from "../assets/image-product-1.jpg";
 import imageTwo from "../assets/image-product-2.jpg";
 import imageThree from "../assets/image-product-3.jpg";
 import imageFour from "../assets/image-product-4.jpg";
+import { SliderProps } from "../types";
 
 export const CarouselItem = ({
   children,
@@ -21,13 +22,7 @@ export const CarouselItem = ({
   );
 };
 
-const Carousel = ({
-  children,
-  showLightBox,
-  setShowLightBox,
-}: {
-  children: ReactNode;
-}) => {
+const Carousel = ({ children, showLightBox, setShowLightBox }: SliderProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const updateIndex = (newIndex: number) => {

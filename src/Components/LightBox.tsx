@@ -1,8 +1,12 @@
-import React from "react";
 import Slider from "../Components/Slider";
 import close from "../assets/icon-close.svg";
+import { LightBoxProps } from "../types";
 
-export default function LightBox({ showLightBox, setShowLightBox }) {
+export default function LightBox({
+  showLightBox,
+  setShowLightBox,
+  children,
+}: LightBoxProps) {
   return (
     showLightBox && (
       <div>
@@ -23,6 +27,17 @@ export default function LightBox({ showLightBox, setShowLightBox }) {
             <Slider
               showLightBox={showLightBox}
               setShowLightBox={setShowLightBox}
+              children={children}
+              count={0}
+              setCount={function (): void {
+                throw new Error("Function not implemented.");
+              }}
+              setTotal={function (): void {
+                throw new Error("Function not implemented.");
+              }}
+              totalBuying={function (): void {
+                throw new Error("Function not implemented.");
+              }}
             />
           </div>
         </div>

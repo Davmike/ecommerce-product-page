@@ -9,18 +9,14 @@ import LightBox from "./Components/LightBox";
 function App() {
   const [hidden, setHidden] = useState(false);
   const [cart, setCart] = useState<boolean>(false);
-  const [total, setTotal] = useState<number | undefined>(0);
+  const [total, setTotal] = useState<number>(0);
   const [number, setNumber] = useState<number>();
   const [count, setCount] = useState<number>(0);
-  const [showLightBox, setShowLightBox] = useState(false);
+  const [showLightBox, setShowLightBox] = useState<boolean>(false);
 
   const totalBuying = () => {
     setTotal(count);
   };
-
-  // const handleClose = () => {
-  //   setShowLightBox(showLightBox);
-  // };
 
   return (
     <>
@@ -39,9 +35,7 @@ function App() {
         cart={cart}
         setCart={setCart}
         total={total}
-        setTotal={setTotal}
         count={count}
-        setCount={setCount}
       />
       <Cart
         cart={cart}
@@ -56,11 +50,14 @@ function App() {
         setCount={setCount}
         setTotal={setTotal}
         totalBuying={totalBuying}
-        // handleClose={handleClose}
         showLightBox={showLightBox}
         setShowLightBox={setShowLightBox}
       />
-      <LightBox showLightBox={showLightBox} setShowLightBox={setShowLightBox} />
+      <LightBox
+        showLightBox={showLightBox}
+        setShowLightBox={setShowLightBox}
+        children={undefined}
+      />
     </>
   );
 }

@@ -6,6 +6,7 @@ import imgFour from "../assets/image-product-4.jpg";
 import shape from "../assets/Shape.svg";
 import minusImg from "../assets/icon-minus.svg";
 import plusImg from "../assets/icon-plus.svg";
+import { MyComponentProps } from "../types";
 
 export default function Home({
   count,
@@ -13,7 +14,7 @@ export default function Home({
   totalBuying,
   showLightBox,
   setShowLightBox,
-}: CartNumProps) {
+}: MyComponentProps) {
   return (
     <div className="App">
       <Carousel showLightBox={showLightBox} setShowLightBox={setShowLightBox}>
@@ -88,7 +89,7 @@ export default function Home({
           <div className="flex justify-center items-center mt-[16px]">
             <button
               onClick={totalBuying}
-              className="bg-[#FF7E1B] w-[327px] h-[56px] rounded-[10px] flex justify-center items-center gap-[15px] text-[#FFFFFF] text-[16px] bold xl:w-[272px] xl:h-[56px]"
+              className="bg-[#FF7E1B] w-[327px] h-[56px] rounded-[10px] flex justify-center items-center gap-[15px] text-[#FFFFFF] text-[16px] bold xl:w-[272px] xl:h-[56px] hover:bg-[#FFAB6A]"
             >
               <img src={shape} alt="cart image for button" />
               Add to cart
