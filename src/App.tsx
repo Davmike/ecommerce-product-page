@@ -1,9 +1,11 @@
 import { useState } from "react";
 import Header from "./Components/Header";
-import Slider from "./Components/Slider";
+import Slider from "./Components/Home";
 import Menu from "./Components/Menu";
 import Cart from "./Components/Cart";
 import DesktopHeader from "./Components/DesktopHeader";
+import LightBox from "./Components/LightBox";
+import Carousel from "./Components/Slider";
 
 function App() {
   const [hidden, setHidden] = useState(false);
@@ -11,9 +13,14 @@ function App() {
   const [total, setTotal] = useState<number | undefined>(0);
   const [number, setNumber] = useState<number>();
   const [count, setCount] = useState<number>(0);
+  const [showLightBox, setShowLightBox] = useState(false);
 
   const totalBuying = () => {
     setTotal(count);
+  };
+
+  const handleClose = () => {
+    setShowLightBox(false);
   };
 
   return (
@@ -50,7 +57,9 @@ function App() {
         setCount={setCount}
         setTotal={setTotal}
         totalBuying={totalBuying}
+        handleClose={handleClose}
       />
+      <LightBox showLightBox={showLightBox} setShowLightBox={setShowLightBox} />
     </>
   );
 }

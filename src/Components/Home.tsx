@@ -1,91 +1,100 @@
-import React, { ReactNode, useState } from "react";
-import { useSwipeable } from "react-swipeable";
-import arrowRight from "../assets/icon-next.svg";
-import arrowLeft from "../assets/icon-previous.svg";
-import imageOne from "../assets/image-product-1.jpg";
-import imageTwo from "../assets/image-product-2.jpg";
-import imageThree from "../assets/image-product-3.jpg";
-import imageFour from "../assets/image-product-4.jpg";
+import Carousel, { CarouselItem } from "./Slider";
+import imgOne from "../assets/image-product-1.jpg";
+import imgTwo from "../assets/image-product-2.jpg";
+import imgThree from "../assets/image-product-3.jpg";
+import imgFour from "../assets/image-product-4.jpg";
+import shape from "../assets/Shape.svg";
+import minusImg from "../assets/icon-minus.svg";
+import plusImg from "../assets/icon-plus.svg";
 
-export const CarouselItem = ({
-  children,
-  width,
-}: {
-  children: ReactNode;
-  width: string;
-}) => {
+export default function Home({
+  count,
+  setCount,
+  totalBuying,
+  handleClose,
+}: CartNumProps) {
   return (
-    <div className="carousel-item" style={{ width: width }}>
-      {children}
-    </div>
-  );
-};
+    <div className="App">
+      <Carousel>
+        <CarouselItem width={""}>
+          <img className="image" src={imgOne} alt="Product 1" />
+        </CarouselItem>
+        <CarouselItem width={""}>
+          <img className="image" src={imgTwo} alt="Product 2" />
+        </CarouselItem>
+        <CarouselItem width={""}>
+          <img className="image" src={imgThree} alt="Product 3" />
+        </CarouselItem>
+        <CarouselItem width={""}>
+          <img className="image" src={imgFour} alt="Product 4" />
+        </CarouselItem>
+      </Carousel>
+      <div className="px-[24px] pt-[24px] pb-[88px] xl:w-[445px] xl:h-[426px]">
+        <p className="text-[#FF7E1B] text-[12px] font-bold">SNEAKER COMPANY</p>
 
-const Carousel = ({ children }: { children: ReactNode }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
+        <h1 className="text-[#1D2026] text-[28px] font-bold mt-[19px] xl:text-[44px]">
+          Fall Limited Edition Sneakers
+        </h1>
 
-  const updateIndex = (newIndex: number) => {
-    if (newIndex < 0) {
-      newIndex = React.Children.count(children) - 1;
-    } else if (newIndex >= React.Children.count(children)) {
-      newIndex = 0;
-    }
+        <p className="text-[#69707D] text-[15px] font-normal mt-[15px]">
+          These low-profile sneakers are your perfect casual wear companion.
+          Featuring a durable rubber outer sole, they’ll withstand everything
+          the weather can offer.
+        </p>
 
-    setActiveIndex(newIndex);
-  };
-
-  const handlers = useSwipeable({
-    onSwipedLeft: () => updateIndex(activeIndex + 1),
-    onSwipedRight: () => updateIndex(activeIndex - 1),
-  });
-
-  const ProductImage = [imageOne, imageTwo, imageThree, imageFour];
-
-  const [mainImage, setMainImage] = useState(imageOne);
-
-  return (
-    <div className="flex justify-center items-center">
-      <div {...handlers} className="carousel">
-        <div
-          className="inner"
-          style={{ transform: `translateX(-${activeIndex * 100}%)` }}
-        >
-          <img
-            src={mainImage}
-            alt="main"
-            style={{ width: "100%" }}
-            className="hidden xl:block xl:absolute"
-          />
-          {React.Children.map(children, (child: any) => {
-            return React.cloneElement(child, { width: "100%" });
-          })}
-        </div>
-        <div className="indicators">
-          <div className="w-[40px] h-[40px] bg-[white] rounded-[50%] flex justify-center items-center">
-            <button onClick={() => updateIndex(activeIndex - 1)}>
-              <img src={arrowLeft} alt="turn image left" />
-            </button>
+        <div className="flex justify-between items-center mt-[28px]">
+          <div className="flex justify-center items-center">
+            <p className="text-[#1D2026] text-[28px] font-bold">$125.00</p>
+            <div className="w-[51px] h-[27px] bg-[#FFEEE2] rounded-[6px] flex justify-center items-center ml-[16px]">
+              <p className="text-[#FF7E1B] text-[16px] font-bold ">50%</p>
+            </div>
           </div>
-          <div className="w-[40px] h-[40px] bg-[white] rounded-[50%] flex justify-center items-center">
-            <button onClick={() => updateIndex(activeIndex + 1)}>
-              <img src={arrowRight} alt="turn image right" />
+          <p className="text-[#B6BCC8] text-[16px] font-bold line-through">
+            $250.00
+          </p>
+        </div>
+        <div className="xl:flex xl:gap-[16px]">
+          <div className="flex justify-center">
+            <div className="flex flex-row justify-between items-center w-[327px] h-[56px] bg-[#F6F8FD] p-[24px] mt-[27px] rounded-md  desktop:w-[137px] xl:w-[157px] xl:h-[56px]">
+              <button
+                onClick={() => {
+                  {
+                    count > 0 ? setCount(count - 1) : "";
+                  }
+                }}
+              >
+                <img
+                  src={minusImg}
+                  alt=""
+                  className="cursor-pointer  hover:text-[#FFAB6A]"
+                />
+              </button>
+              <strong className="font-kumbh-sans">{count}</strong>
+              <button
+                onClick={() => {
+                  setCount(count + 1);
+                }}
+              >
+                <img
+                  src={plusImg}
+                  alt=""
+                  className="cursor-pointer  hover:text-[#FFAB6A]"
+                />
+              </button>
+            </div>
+          </div>
+
+          <div className="flex justify-center items-center mt-[16px]">
+            <button
+              onClick={totalBuying}
+              className="bg-[#FF7E1B] w-[327px] h-[56px] rounded-[10px] flex justify-center items-center gap-[15px] text-[#FFFFFF] text-[16px] bold xl:w-[272px] xl:h-[56px]"
+            >
+              <img src={shape} alt="cart image for button" />
+              Add to cart
             </button>
           </div>
         </div>
       </div>
-      <div className="hidden xl:flex xl:absolute xl:top-[616px]">
-        {ProductImage.map((image, index) => (
-          <img
-            key={index}
-            src={image}
-            alt=""
-            className="w-[88px] h-[88px] mr-4 cursor-pointer"
-            onClick={() => setMainImage(image)}
-          />
-        ))}
-      </div>
     </div>
   );
-};
-
-export default Carousel;
+}
