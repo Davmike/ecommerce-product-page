@@ -11,11 +11,12 @@ export default function Home({
   count,
   setCount,
   totalBuying,
-  handleClose,
+  showLightBox,
+  setShowLightBox,
 }: CartNumProps) {
   return (
     <div className="App">
-      <Carousel>
+      <Carousel showLightBox={showLightBox} setShowLightBox={setShowLightBox}>
         <CarouselItem width={""}>
           <img className="image" src={imgOne} alt="Product 1" />
         </CarouselItem>

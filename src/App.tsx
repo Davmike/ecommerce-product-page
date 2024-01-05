@@ -5,7 +5,6 @@ import Menu from "./Components/Menu";
 import Cart from "./Components/Cart";
 import DesktopHeader from "./Components/DesktopHeader";
 import LightBox from "./Components/LightBox";
-import Carousel from "./Components/Slider";
 
 function App() {
   const [hidden, setHidden] = useState(false);
@@ -19,9 +18,9 @@ function App() {
     setTotal(count);
   };
 
-  const handleClose = () => {
-    setShowLightBox(false);
-  };
+  // const handleClose = () => {
+  //   setShowLightBox(showLightBox);
+  // };
 
   return (
     <>
@@ -57,7 +56,9 @@ function App() {
         setCount={setCount}
         setTotal={setTotal}
         totalBuying={totalBuying}
-        handleClose={handleClose}
+        // handleClose={handleClose}
+        showLightBox={showLightBox}
+        setShowLightBox={setShowLightBox}
       />
       <LightBox showLightBox={showLightBox} setShowLightBox={setShowLightBox} />
     </>

@@ -21,7 +21,13 @@ export const CarouselItem = ({
   );
 };
 
-const Carousel = ({ children }: { children: ReactNode }) => {
+const Carousel = ({
+  children,
+  showLightBox,
+  setShowLightBox,
+}: {
+  children: ReactNode;
+}) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const updateIndex = (newIndex: number) => {
@@ -55,6 +61,9 @@ const Carousel = ({ children }: { children: ReactNode }) => {
             alt="main"
             style={{ width: "100%" }}
             className="hidden xl:block xl:absolute"
+            onClick={() => {
+              setShowLightBox(!showLightBox);
+            }}
           />
           {React.Children.map(children, (child: any) => {
             return React.cloneElement(child, { width: "100%" });
