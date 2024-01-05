@@ -2,6 +2,10 @@ import React, { ReactNode, useState } from "react";
 import { useSwipeable } from "react-swipeable";
 import arrowRight from "../assets/icon-next.svg";
 import arrowLeft from "../assets/icon-previous.svg";
+import imageOne from "../assets/image-product-1.jpg";
+import imageTwo from "../assets/image-product-2.jpg";
+import imageThree from "../assets/image-product-3.jpg";
+import imageFour from "../assets/image-product-4.jpg";
 
 export const CarouselItem = ({
   children,
@@ -17,7 +21,6 @@ export const CarouselItem = ({
   );
 };
 
-// here i add image change code which controled if image change or not
 const Carousel = ({ children }: { children: ReactNode }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -31,11 +34,14 @@ const Carousel = ({ children }: { children: ReactNode }) => {
     setActiveIndex(newIndex);
   };
 
-  // here i add sensor slider for mobile and other device
   const handlers = useSwipeable({
     onSwipedLeft: () => updateIndex(activeIndex + 1),
     onSwipedRight: () => updateIndex(activeIndex - 1),
   });
+
+  const ProductImage = [imageOne, imageTwo, imageThree, imageFour];
+
+  const [mainImage, setMainImage] = useState(imageOne);
 
   return (
     <div className="flex justify-center items-center">
@@ -44,32 +50,39 @@ const Carousel = ({ children }: { children: ReactNode }) => {
           className="inner"
           style={{ transform: `translateX(-${activeIndex * 100}%)` }}
         >
+          <img
+            src={mainImage}
+            alt="main"
+            style={{ width: "100%" }}
+            className="hidden xl:block xl:absolute"
+          />
           {React.Children.map(children, (child: any) => {
             return React.cloneElement(child, { width: "100%" });
           })}
         </div>
         <div className="indicators">
-          {/* first image which turn image left*/}
           <div className="w-[40px] h-[40px] bg-[white] rounded-[50%] flex justify-center items-center">
-            <button
-              onClick={() => {
-                updateIndex(activeIndex - 1);
-              }}
-            >
+            <button onClick={() => updateIndex(activeIndex - 1)}>
               <img src={arrowLeft} alt="turn image left" />
             </button>
           </div>
-          {/* second image which turn image right*/}
-          <div className="w-[40px] h-[40px] bg-[white] rounded-[50%] flex justify-center items-center ">
-            <button
-              onClick={() => {
-                updateIndex(activeIndex + 1);
-              }}
-            >
+          <div className="w-[40px] h-[40px] bg-[white] rounded-[50%] flex justify-center items-center">
+            <button onClick={() => updateIndex(activeIndex + 1)}>
               <img src={arrowRight} alt="turn image right" />
             </button>
           </div>
         </div>
+      </div>
+      <div className="hidden xl:flex xl:absolute xl:top-[616px]">
+        {ProductImage.map((image, index) => (
+          <img
+            key={index}
+            src={image}
+            alt=""
+            className="w-[88px] h-[88px] mr-4 cursor-pointer"
+            onClick={() => setMainImage(image)}
+          />
+        ))}
       </div>
     </div>
   );
