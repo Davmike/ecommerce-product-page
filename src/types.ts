@@ -1,7 +1,3 @@
-export interface StyledBurgerProps extends MyComponentProps {
-  // This extends from MyComponentProps for clarity and potential future modifications
-}
-
 export interface LightBoxProps {
   showLightBox: boolean;
   setShowLightBox: (showLightBox: boolean) => void;
@@ -18,9 +14,7 @@ export interface SliderProps {
   children: React.ReactNode;
 }
 
-export interface MyComponentProps extends DesktopHeaderProps {
-  hidden: boolean;
-  setHidden: (hidden: boolean) => void;
+export interface MyComponentProps extends DesktopHeaderProps, styleBurgerProps {
   setTotal: (total: number) => void;
   number: number | null;
   setNumber: (number: number) => void;
@@ -29,6 +23,13 @@ export interface MyComponentProps extends DesktopHeaderProps {
   showLightBox: boolean;
   setShowLightBox: (showLightBox: boolean) => void;
   children: undefined;
+}
+
+export interface headerProps extends styleBurgerProps, DesktopHeaderProps {}
+
+export interface styleBurgerProps {
+  hidden: boolean;
+  setHidden: (hidden: boolean) => void;
 }
 
 export interface DesktopHeaderProps extends CartProps {

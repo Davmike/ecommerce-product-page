@@ -1,10 +1,10 @@
 import logo from "../assets/logo.svg";
 import cartImage from "../assets/icon-cart.svg";
 import profile from "../assets/image-avatar.png";
-import { SetStateAction } from "react";
+import { headerProps, styleBurgerProps } from "../types";
 
 // StyledBurger component
-const StyledBurger = ({ setHidden, hidden }: StyledBurgerProps) => (
+const StyledBurger = ({ setHidden, hidden }: styleBurgerProps) => (
   <button
     className={`flex flex-col justify-around  w-8 h-8 bg-transparent border-none cursor-pointer p-0 z-40 focus:outline-none`}
     onClick={() => setHidden(!hidden)}
@@ -34,25 +34,12 @@ export default function Header({
   setCart,
   total,
   count,
-}: MyComponentProps) {
+}: headerProps) {
   return (
     <header className="relative xl:hidden">
       <div className="flex justify-between items-center bg-[white] px-[24px] pt-[20px] pb-[28px]">
         <div className="flex items-center">
-          <StyledBurger
-            setHidden={setHidden}
-            hidden={hidden}
-            cart={false}
-            setCart={function (_cart: boolean): void {
-              throw new Error("Function not implemented.");
-            }}
-            total={0}
-            setTotal={undefined}
-            count={0}
-            setCount={function (value: SetStateAction<number>): void {
-              throw new Error("Function not implemented.");
-            }}
-          />
+          <StyledBurger setHidden={setHidden} hidden={hidden} />
           <img
             className="w-[137px] h-[28px] ml-[10px]"
             src={logo}

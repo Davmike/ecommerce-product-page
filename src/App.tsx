@@ -27,9 +27,7 @@ function App() {
         cart={cart}
         setCart={setCart}
         total={total}
-        setTotal={setTotal}
         count={count}
-        setCount={setCount}
       />
       <DesktopHeader
         cart={cart}
