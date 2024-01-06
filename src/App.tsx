@@ -37,14 +37,7 @@ function App() {
         total={total}
         count={count}
       />
-      <Cart
-        cart={cart}
-        total={total}
-        setTotal={setTotal}
-        number={number}
-        setNumber={setNumber}
-        count={count}
-      />
+      <Cart cart={cart} total={total} count={count} />
       <Slider
         count={count}
         setCount={setCount}

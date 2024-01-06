@@ -1,6 +1,7 @@
 import cartImg from "../assets/image-product-1-thumbnail.jpg";
 import trash from "../assets/icon-delete.svg";
 import { useState } from "react";
+import { CartProps } from "../types";
 
 export default function Cart({ cart, total, count }: CartProps) {
   const [num] = useState(125);
@@ -8,7 +9,10 @@ export default function Cart({ cart, total, count }: CartProps) {
   return (
     <div className="px-[8px] pt-[8px] pb-[36px] flex absolute right-0 z-10 flex-row-reverse">
       {cart && (
-        <div className="bg-[#FFFFFF] rounded-[10px] h-[256px] w-[360px]">
+        <div
+          className="bg-[#FFFFFF] rounded-[10px] h-[256px] w-[360px]"
+          style={{ boxShadow: "0px 20px 50px -20px rgba(29, 32, 38, 0.50)" }}
+        >
           <p className="text-[#1D2026] text-[16px] font-bold pt-[24px] pl-[24px]">
             Cart
           </p>

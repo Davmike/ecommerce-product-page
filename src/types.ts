@@ -18,16 +18,12 @@ export interface SliderProps {
   children: React.ReactNode;
 }
 
-export interface MyComponentProps {
+export interface MyComponentProps extends DesktopHeaderProps {
   hidden: boolean;
   setHidden: (hidden: boolean) => void;
-  cart: boolean;
   setTotal: (total: number) => void;
-  total: number;
   number: number | null;
   setNumber: (number: number) => void;
-  setCart: (cart: boolean) => void;
-  count: number;
   setCount: (count: number) => void;
   totalBuying: () => void;
   showLightBox: boolean;
@@ -35,9 +31,12 @@ export interface MyComponentProps {
   children: undefined;
 }
 
-export interface DesktopHeaderProps {
-  cart: boolean;
+export interface DesktopHeaderProps extends CartProps {
   setCart: (cart: boolean) => void;
+}
+
+export interface CartProps {
+  cart: boolean;
   total: number;
   count: number;
 }
