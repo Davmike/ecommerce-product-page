@@ -10,7 +10,7 @@ function App() {
   const [hidden, setHidden] = useState(false);
   const [cart, setCart] = useState<boolean>(false);
   const [total, setTotal] = useState<number>(0);
-  const [number, setNumber] = useState<number>();
+  const [number, setNumber] = useState<number>(0);
   const [count, setCount] = useState<number>(0);
   const [showLightBox, setShowLightBox] = useState<boolean>(false);
 
@@ -52,6 +52,14 @@ function App() {
         totalBuying={totalBuying}
         showLightBox={showLightBox}
         setShowLightBox={setShowLightBox}
+        hidden={hidden}
+        setHidden={setHidden}
+        cart={cart}
+        total={total}
+        number={number}
+        setNumber={setNumber}
+        setCart={setCart}
+        children={undefined}
       />
       <LightBox
         showLightBox={showLightBox}

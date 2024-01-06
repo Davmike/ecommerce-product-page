@@ -11,13 +11,21 @@ import { MyComponentProps } from "../types";
 export default function Home({
   count,
   setCount,
+  setTotal,
   totalBuying,
   showLightBox,
   setShowLightBox,
 }: MyComponentProps) {
   return (
     <div className="App">
-      <Carousel showLightBox={showLightBox} setShowLightBox={setShowLightBox}>
+      <Carousel
+        showLightBox={showLightBox}
+        setShowLightBox={setShowLightBox}
+        count={count}
+        setCount={setCount}
+        setTotal={setTotal}
+        totalBuying={totalBuying}
+      >
         <CarouselItem width={""}>
           <img className="image" src={imgOne} alt="Product 1" />
         </CarouselItem>

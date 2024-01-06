@@ -20,11 +20,11 @@ export interface SliderProps {
 
 export interface MyComponentProps {
   hidden: boolean;
-  setHidden: React.Dispatch<React.SetStateAction<boolean>>;
+  setHidden: (hidden: boolean) => void;
   cart: boolean;
   setTotal: (total: number) => void;
   total: number;
-  number: number;
+  number: number | null;
   setNumber: (number: number) => void;
   setCart: (cart: boolean) => void;
   count: number;
@@ -33,4 +33,11 @@ export interface MyComponentProps {
   showLightBox: boolean;
   setShowLightBox: (showLightBox: boolean) => void;
   children: undefined;
+}
+
+export interface DesktopHeaderProps {
+  cart: boolean;
+  setCart: (cart: boolean) => void;
+  total: number;
+  count: number;
 }
